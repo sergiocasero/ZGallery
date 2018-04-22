@@ -38,9 +38,9 @@ public class GridImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
     @Override
     public void onBindViewHolder(ImageViewHolder holder, final int position) {
         Glide.with(mActivity)
-                .setDefaultRequestOptions(new RequestOptions().centerCrop()
-                        .placeholder((imgPlaceHolderResId != -1 ? imgPlaceHolderResId : R.drawable.placeholder)))
                 .load(imageURLs.get(position))
+                .apply(new RequestOptions().centerCrop()
+                        .placeholder((imgPlaceHolderResId != -1 ? imgPlaceHolderResId : R.drawable.placeholder)))
                 .into(holder.image);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
