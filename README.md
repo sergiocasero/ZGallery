@@ -3,6 +3,7 @@
 [![](https://jitpack.io/v/mzelzoghbi/ZGallery.svg)](https://jitpack.io/#mzelzoghbi/ZGallery)
 
 (Derived version of the mzelzoghbi/ZGallery,added support for Glide v4.0)
+
 Android 3rd party library to make implementing galleries more easier
 
 
@@ -66,7 +67,7 @@ Add this to your module `build.gradle` file:
 ```java
 dependencies {
   ...
-    compile 'com.github.mzelzoghbi:zgallery:0.3'
+    compile 'com.github.dderakhshani:zgallery:0.3.2'
 }
 ```
 
