@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.mzelzoghbi.zgallery.GlideApp;
 import com.mzelzoghbi.zgallery.ImageViewHolder;
 import com.mzelzoghbi.zgallery.R;
 import com.mzelzoghbi.zgallery.adapters.listeners.GridClickListener;
@@ -36,7 +37,7 @@ public class GridImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, final int position) {
-        Glide.with(mActivity).load(imageURLs.get(position))
+        GlideApp.with(mActivity).load(imageURLs.get(position))
                 .placeholder(imgPlaceHolderResId != -1 ? imgPlaceHolderResId : R.drawable.placeholder)
                 .into(holder.image);
 
