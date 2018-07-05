@@ -22,7 +22,7 @@ public class ZGalleryActivity extends BaseActivity {
     protected void afterInflation() {
         ZGalleryGridView gridView = findViewById(R.id.zGalleryGridView);
 
-        gridView.initialize(this, ZColor.WHITE, 0, getDummyImageList());
+        gridView.initialize(this, ZColor.BLACK, 0, getDummyImageList());
     }
 
     @Override

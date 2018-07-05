@@ -24,24 +24,24 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation("com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion") {
+    api 'com.android.support:multidex:1.0.3'
+    api("com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    implementation("com.android.support:support-v4:$rootProject.ext.supportLibVersion") {
+    api("com.android.support:support-v4:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation "com.github.bumptech.glide:okhttp3-integration:$rootProject.ext.glideVersion@aar"
-    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
-    implementation("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api "com.github.bumptech.glide:okhttp3-integration:$rootProject.ext.glideVersion@aar"
+    api "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    api("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    implementation("com.github.chrisbanes:PhotoView:$rootProject.ext.photoViewLibVersion") {
+    api("com.github.chrisbanes:PhotoView:$rootProject.ext.photoViewLibVersion") {
         ext.optional = false
     }
-    implementation("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
+    api("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    implementation("com.android.support:design:$rootProject.ext.supportLibVersion") { ext.optional = true }
+    api("com.android.support:design:$rootProject.ext.supportLibVersion") { ext.optional = true }
 }
