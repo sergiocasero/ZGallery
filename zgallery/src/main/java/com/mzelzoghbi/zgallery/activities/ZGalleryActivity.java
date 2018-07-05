@@ -1,12 +1,5 @@
 package com.mzelzoghbi.zgallery.activities;
 
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
-import android.widget.RelativeLayout;
-
 import com.mzelzoghbi.zgallery.Constants;
 import com.mzelzoghbi.zgallery.CustomViewPager;
 import com.mzelzoghbi.zgallery.OnImgClick;
@@ -15,18 +8,31 @@ import com.mzelzoghbi.zgallery.adapters.HorizontalListAdapters;
 import com.mzelzoghbi.zgallery.adapters.ViewPagerAdapter;
 import com.mzelzoghbi.zgallery.entities.ZColor;
 
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+import android.widget.RelativeLayout;
+
 /**
  * Created by mohamedzakaria on 8/11/16.
  */
 public class ZGalleryActivity extends BaseActivity {
+    CustomViewPager mViewPager;
+
+    ViewPagerAdapter adapter;
+
+    RecyclerView imagesHorizontalList;
+
+    LinearLayoutManager mLayoutManager;
+
+    HorizontalListAdapters hAdapter;
+
     private RelativeLayout mainLayout;
 
-    CustomViewPager mViewPager;
-    ViewPagerAdapter adapter;
-    RecyclerView imagesHorizontalList;
-    LinearLayoutManager mLayoutManager;
-    HorizontalListAdapters hAdapter;
     private int currentPos;
+
     private ZColor bgColor;
 
 

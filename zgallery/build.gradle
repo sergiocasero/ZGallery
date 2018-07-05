@@ -22,26 +22,26 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:multidex:1.0.1'
-    compile ("com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion") {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation("com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    compile ("com.android.support:support-v4:$rootProject.ext.supportLibVersion") {
+    implementation("com.android.support:support-v4:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    compile 'com.squareup.okhttp3:okhttp:3.8.1'
-    compile "com.github.bumptech.glide:okhttp3-integration:$rootProject.ext.glideVersion@aar"
-    compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
-    compile("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation "com.github.bumptech.glide:okhttp3-integration:$rootProject.ext.glideVersion@aar"
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    implementation("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    compile("com.github.chrisbanes:PhotoView:$rootProject.ext.photoViewLibVersion") {
+    implementation("com.github.chrisbanes:PhotoView:$rootProject.ext.photoViewLibVersion") {
         ext.optional = false
     }
-    compile("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
+    implementation("com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion") {
         ext.optional = true
     }
-    compile("com.android.support:design:$rootProject.ext.supportLibVersion") { ext.optional = true }
+    implementation("com.android.support:design:$rootProject.ext.supportLibVersion") { ext.optional = true }
 }
