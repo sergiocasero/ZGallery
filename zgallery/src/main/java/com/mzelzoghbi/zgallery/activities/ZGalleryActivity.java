@@ -1,40 +1,17 @@
 package com.mzelzoghbi.zgallery.activities;
 
-import com.mzelzoghbi.zgallery.Constants;
-import com.mzelzoghbi.zgallery.CustomViewPager;
-import com.mzelzoghbi.zgallery.OnImgClick;
 import com.mzelzoghbi.zgallery.R;
-import com.mzelzoghbi.zgallery.adapters.HorizontalListAdapters;
-import com.mzelzoghbi.zgallery.adapters.ViewPagerAdapter;
 import com.mzelzoghbi.zgallery.entities.ZColor;
+import com.mzelzoghbi.zgallery.view.ZGalleryGridView;
 
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
 
 /**
  * Created by mohamedzakaria on 8/11/16.
  */
 public class ZGalleryActivity extends BaseActivity {
-    CustomViewPager mViewPager;
-
-    ViewPagerAdapter adapter;
-
-    RecyclerView imagesHorizontalList;
-
-    LinearLayoutManager mLayoutManager;
-
-    HorizontalListAdapters hAdapter;
-
-    private RelativeLayout mainLayout;
-
-    private int currentPos;
-
-    private ZColor bgColor;
-
 
     @Override
     protected int getResourceLayoutId() {
@@ -43,53 +20,9 @@ public class ZGalleryActivity extends BaseActivity {
 
     @Override
     protected void afterInflation() {
-        // init layouts
-        mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
-        mViewPager = (CustomViewPager) findViewById(R.id.pager);
-        imagesHorizontalList = (RecyclerView) findViewById(R.id.imagesHorizontalList);
+        ZGalleryGridView gridView = findViewById(R.id.zGalleryGridView);
 
-        // get intent data
-        currentPos = getIntent().getIntExtra(Constants.IntentPassingParams.SELECTED_IMG_POS, 0);
-        bgColor = (ZColor) getIntent().getSerializableExtra(Constants.IntentPassingParams.BG_COLOR);
-
-        if (bgColor == ZColor.WHITE) {
-            mainLayout.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
-        }
-
-        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        // pager adapter
-        adapter = new ViewPagerAdapter(this, imageURLs, mToolbar, imagesHorizontalList);
-        mViewPager.setAdapter(adapter);
-        // horizontal list adaapter
-        hAdapter = new HorizontalListAdapters(this, imageURLs, new OnImgClick() {
-            @Override
-            public void onClick(int pos) {
-                mViewPager.setCurrentItem(pos, true);
-            }
-        });
-        imagesHorizontalList.setLayoutManager(mLayoutManager);
-        imagesHorizontalList.setAdapter(hAdapter);
-        hAdapter.notifyDataSetChanged();
-
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                imagesHorizontalList.smoothScrollToPosition(position);
-                hAdapter.setSelectedItem(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        hAdapter.setSelectedItem(currentPos);
-        mViewPager.setCurrentItem(currentPos);
+        gridView.initialize(this, ZColor.WHITE, 0, getDummyImageList());
     }
 
     @Override
@@ -98,5 +31,54 @@ public class ZGalleryActivity extends BaseActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private ArrayList<String> getDummyImageList() {
+        ArrayList<String> imagesList = new ArrayList<>();
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/08/05110349/20160731-igor-trepeshchenok-barnimages-08"
+                        + "-768x509.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095154/tumblr_oawfisUmZo1u7ns0go1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095153/tumblr_obbkeo3lZW1ted1sho1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095153/tumblr_obaxpnJbKg1sfie3io1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095153/tumblr_obdehwWneK1slhhf0o1_500.jpg");
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/08/05095152/2016-08-01-roman-drits-barnimages-005"
+                        + "-768x512.jpg");
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/08/05095151/2016-08-01-roman-drits-barnimages-003"
+                        + "-768x512.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095149/tumblr_obbjwp1bDz1ted1sho1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095151/tumblr_oawfhnxNjL1u7ns0go1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/05095150/tumblr_ob6xvqXLoB1tlwzgvo1_500.jpg");
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/08/05095148/20160731-igor-trepeshchenok-barnimages-10"
+                        + "-768x512.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092421/tumblr_oawfgd2G941u7ns0go1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092423/tumblr_ob6xutS8N21tlwzgvo1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092421/tumblr_o86sgm6F7a1ted1sho1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092420/tumblr_ob6xudqW4U1tlwzgvo1_500.jpg");
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/08/03092420/2016-08-01-roman-drits-barnimages-002"
+                        + "-768x512.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092418/tumblr_o97fatuGnd1ted1sho1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092420/tumblr_oawff12j9L1u7ns0go1_500.jpg");
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/08/03092420/2016-08-01-roman-drits-barnimages-001"
+                        + "-768x512.jpg");
+        imagesList
+                .add("http://1x402i15i5vh15yage3fafmg.wpengine.netdna-cdn"
+                        + ".com/wp-content/uploads/2016/08/tumblr_oawfdsEx2w1u7ns0go1_500-1.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/08/03092417/tumblr_o97gyqSK3k1ted1sho1_500.jpg");
+        imagesList
+                .add("http://static0.passel.co/wp-content/uploads/2016/07/03092417/20160731-igor-trepeshchenok-barnimages-07"
+                        + "-768x512.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/07/03092605/tumblr_ob6wjiCBUh1tlwzgvo1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/07/03092604/tumblr_ob6wkn58cJ1tlwzgvo1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/07/03092416/tumblr_ob6wk7mns81tlwzgvo1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/07/03092413/tumblr_ob6vv04yIP1tlwzgvo1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/07/03092414/tumblr_ob6vk1bBPa1tlwzgvo1_500.jpg");
+        imagesList.add("http://static0.passel.co/wp-content/uploads/2016/07/03092404/tumblr_o97ipvkger1ted1sho1_500.jpg");
+        return imagesList;
     }
 }
